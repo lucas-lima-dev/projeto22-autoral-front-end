@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/home'
+import SignInPage from './pages/SignIn/SignInPage'
 
 
 function App() {
@@ -9,7 +10,7 @@ function App() {
     <>
       <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<SignInPage />} />
       </Routes>
       </BrowserRouter>
     </>
