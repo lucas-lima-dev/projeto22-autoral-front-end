@@ -48,7 +48,7 @@ export const StyledInput = w.input(
 );
 
 export const StyledButton = w.button(
-    `
+  `
     w-[30vw]
     h-[65px]
     bg-[#1877f2]
@@ -59,10 +59,10 @@ export const StyledButton = w.button(
 );
 
 export const StyledP = w.p(
-    `
+  `
     text-[#FFFFFF]
     text-[20px]
     cursor-pointer
     underline
     `
-)
+);
