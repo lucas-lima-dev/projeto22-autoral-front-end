@@ -1,47 +1,45 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { FormContainer, SignUpPageContainer, StyledButton, StyledForm, StyledInput, StyledP, TitleContainer } from "./styled";
 
-import {
-  SignInPageContainer,
-  TitleContainer,
-  FormContainer,
-  StyledForm,
-  StyledInput,
-  StyledButton,
-  StyledP,
-} from "./styled";
-
-function SignInPage() {
+function SignUpPage() {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user_url, setUserUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log(import.meta.env.VITE_API_BASE_URL)
+  
   async function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
 
-    if (email === "" || password === "") {
+    if (username === "" || email === "" || password === "" || user_url === "") {
       return alert("Por favor, preencha todos os dados!");
     }
 
     const body = {
+      username,
       email,
       password,
+      user_url,
     };
+
+    console.log(body);
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/users/sign-in`,
+        `${import.meta.env.VITE_API_BASE_URL}/users/sign-up`,
         body
       );
+      console.log(response);
 
       setIsLoading(false);
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      alert("Usuário cadastrado com sucesso!");
       navigate("/home");
-
     } catch (error) {
       console.log(error);
       alert("Ops! Tente novamente!");
@@ -50,7 +48,7 @@ function SignInPage() {
   }
 
   return (
-    <SignInPageContainer>
+    <SignUpPageContainer>
       <TitleContainer>
         <div className="m-[220px 0 0 110px]">
           <h1 className="text-[106px] ">FunForFamily</h1>
@@ -62,6 +60,13 @@ function SignInPage() {
 
       <FormContainer>
         <StyledForm onSubmit={() => handleSubmit()}>
+          <StyledInput
+            type="username"
+            placeholder="username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+            required
+          />
           <StyledInput
             type="email"
             placeholder="e-mail"
@@ -76,14 +81,21 @@ function SignInPage() {
             onChange={(event) => setPassword(event.target.value)}
             required
           />
+          <StyledInput
+            type="user_url"
+            placeholder="user_url"
+            value={user_url}
+            onChange={(event) => setUserUrl(event.target.value)}
+            required
+          />
           <StyledButton type="submit">Sign In</StyledButton>
-          <StyledP onClick={() => navigate("/users/sign-up")}>
-            First time? Create an account!
+          <StyledP onClick={() => navigate("/")}>
+            Switch back to log in
           </StyledP>
         </StyledForm>
       </FormContainer>
-    </SignInPageContainer>
+    </SignUpPageContainer>
   );
 }
 
-export default SignInPage;
+export default SignUpPage;
