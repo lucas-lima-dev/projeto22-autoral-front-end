@@ -1,7 +1,15 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { FormContainer, SignUpPageContainer, StyledButton, StyledForm, StyledInput, StyledP, TitleContainer } from "./styled";
+import {
+  FormContainer,
+  SignUpPageContainer,
+  StyledButton,
+  StyledForm,
+  StyledInput,
+  StyledP,
+  TitleContainer,
+} from "./styled";
 
 function SignUpPage() {
   const navigate = useNavigate();
@@ -11,15 +19,14 @@ function SignUpPage() {
   const [user_url, setUserUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(import.meta.env.VITE_API_BASE_URL)
-  
   async function handleSubmit(event) {
     event.preventDefault();
     setIsLoading(true);
 
-    if (username === "" || email === "" || password === "" || user_url === "") {
-      return alert("Por favor, preencha todos os dados!");
-    }
+    // if (username === "" || email === "" || password === "" || user_url === "") {
+    //   return alert("Por favor, preencha todos os dados!");
+    // }
+    const URL = `${import.meta.env.VITE_API_BASE_URL}/users/sign-up`;
 
     const body = {
       username,
@@ -31,15 +38,12 @@ function SignUpPage() {
     console.log(body);
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/users/sign-up`,
-        body
-      );
+      const response = await axios.post(URL, body);
       console.log(response);
 
       setIsLoading(false);
       alert("Usuário cadastrado com sucesso!");
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.log(error);
       alert("Ops! Tente novamente!");
@@ -59,7 +63,7 @@ function SignUpPage() {
       </TitleContainer>
 
       <FormContainer>
-        <StyledForm onSubmit={() => handleSubmit()}>
+        <StyledForm onSubmit={handleSubmit}>
           <StyledInput
             type="username"
             placeholder="username"
@@ -88,10 +92,8 @@ function SignUpPage() {
             onChange={(event) => setUserUrl(event.target.value)}
             required
           />
-          <StyledButton type="submit">Sign In</StyledButton>
-          <StyledP onClick={() => navigate("/")}>
-            Switch back to log in
-          </StyledP>
+          <StyledButton type="submit">Sign Up</StyledButton>
+          <StyledP onClick={() => navigate("/")}>Switch back to log in</StyledP>
         </StyledForm>
       </FormContainer>
     </SignUpPageContainer>
