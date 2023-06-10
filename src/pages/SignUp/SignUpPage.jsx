@@ -35,11 +35,10 @@ function SignUpPage() {
       user_url,
     };
 
-    console.log(body);
 
     try {
       const response = await axios.post(URL, body);
-      console.log(response);
+      // console.log(response);
 
       setIsLoading(false);
       alert("Usuário cadastrado com sucesso!");

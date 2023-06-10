@@ -20,7 +20,7 @@ export const HeaderTitle = w.p(
     w-[108px]
     h-[54px]
     text-white
-    font-PassionOne
+    
     font-bold
     font-normal
     ml-[45%]
