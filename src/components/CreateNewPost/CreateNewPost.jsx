@@ -23,7 +23,7 @@ function CreateNewPost() {
     event.preventDefault();
     setIsLoading(true);
 
-    const URL = `${import.meta.env.VITE_API_BASE_URL}/posts`;
+    const URL = `${import.meta.env.VITE_API_BASE_URL}/home/posts`;
 
     const body = {
       url: urlRef.current.value,
