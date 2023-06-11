@@ -31,12 +31,14 @@ function SignInPage() {
       password,
     };
 
+    console.log(body);
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_API_BASE_URL}/users/sign-in`,
         body
       );
-
+      console.log(response);  
       setIsLoading(false);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
@@ -61,7 +63,7 @@ function SignInPage() {
       </TitleContainer>
 
       <FormContainer>
-        <StyledForm onSubmit={() => handleSubmit()}>
+        <StyledForm onSubmit={handleSubmit}>
           <StyledInput
             type="email"
             placeholder="e-mail"
