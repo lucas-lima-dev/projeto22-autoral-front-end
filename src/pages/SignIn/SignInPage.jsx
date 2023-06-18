@@ -11,12 +11,14 @@ import {
   StyledButton,
   StyledP,
 } from "./styled";
+import UserContext from "../../contexts/UserContext";
 
 function SignInPage() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const {setUser} = useContext(UserContext);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -35,10 +37,10 @@ function SignInPage() {
 
     try {
       const response = await axios.post(URL, body);
-
+      
       setIsLoading(false);
       localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
+      setUser(response.data.user);
       navigate("/home");
     } catch (error) {
       alert("Ops! Tente novamente!");

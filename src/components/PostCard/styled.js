@@ -87,6 +87,10 @@ export const PostUrlMetadataContainer = w.div(
     no-underline
     `
 )
+export const PostUrlMetadataTextContainer = w.div(
+    `
+    w-[400px]
+`)
 export const PostUrlMetadataH1 = w.h1(
     `
     text-[16px]
@@ -96,11 +100,10 @@ export const PostUrlMetadataH1 = w.h1(
     ml-[10px]
     mb-[5px]
     `
-    )
+)
 
 export const PostUrlMetadataH2 = w.h2(
     `
-    w-[439px]
     text-[11px]
     text-[#9B9595]
     leading-[13px]

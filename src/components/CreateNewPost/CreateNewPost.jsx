@@ -11,13 +11,18 @@ import {
   UserImgBox,
 } from "./styled";
 import axios from "axios";
+import TimelineContext from "../../contexts/TimelineContext";
+import UserContext from "../../contexts/UserContext";
+
 
 function CreateNewPost() {
   const urlRef = useRef();
   const descriptionRef = useRef();
   const [isLoading, setIsLoading] = useState(false);
   const token = localStorage.getItem("token");
-  const user_url = localStorage.getItem("user_url");
+  const { user } = useContext(UserContext);
+  
+  const { setIsPostCreated } = useContext(TimelineContext);
 
   async function addNewPost(event) {
     event.preventDefault();
@@ -33,16 +38,16 @@ function CreateNewPost() {
 
     try {
       const response = await axios.post(URL, body, header);
-      console.log(response);
 
       setIsLoading(false);
-      alert("Post cadastrado com sucesso!");
+      setIsPostCreated(true);
       urlRef.current.value = "";
       descriptionRef.current.value = "";
     } catch (error) {
       console.log(error);
       alert("Ops! Tente novamente!");
       setIsLoading(false);
+      setIsPostCreated(false);
       urlRef.current.value = "";
       descriptionRef.current.value = "";
     }
@@ -51,7 +56,7 @@ function CreateNewPost() {
   return (
     <CreateNewPostContainer>
       <UserImgBox>
-        <StyledUserImg src="https://picsum.photos/65/65" />
+        <StyledUserImg src={user.user_url} />
       </UserImgBox>
       <PostBox>
         <StyledPostTitle>

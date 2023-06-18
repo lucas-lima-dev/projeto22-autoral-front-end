@@ -6,8 +6,9 @@ export const HomePageContainer = w.div(
     items-center
     justify-center
     w-auto 
-    h-auto 
+    h-screen 
     bg-[#333333]
+    overflow-y-scroll
 
     `
 )
@@ -32,7 +33,15 @@ export const ContentContainer = w.div(
 
 export const PostArea = w.div(
     `
-    
-    w-[70%]
+    w-[60%]
     `
 )
+
+export const NoPostMessage = w.p(
+    `
+    flex
+    items-center
+    justify-center
+    text-[#ffffff]
+    text-[20px]
+    `)

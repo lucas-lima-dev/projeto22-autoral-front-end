@@ -12,16 +12,17 @@ import {
 
 
 function PostContent({post}) {
-    const {id, user_id, description, url, title, image, brief} = post
+  console.log(post)
+    const {id,users,username, description, url, title, image, brief} = post
 
   return (
     <PostContentContainer>
       <PostIterractionsWrapper>
-        <PostUserImg src="https://picsum.photos/200/300" alt="" />
+        <PostUserImg src={users.user_url} alt="post-user-img" />
       </PostIterractionsWrapper>
       <PostTextWrapper>
         <PostHeader>
-            <PostUserName>Lucas</PostUserName>
+            <PostUserName>{users.username}</PostUserName>
             <PostMessage description={description}/>
         </PostHeader>
         <PostUrlMetadata
