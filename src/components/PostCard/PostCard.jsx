@@ -21,7 +21,7 @@ const mockPost = [{
 
 function PostCard() {
   const token = localStorage.getItem("token");
-  const timelineContent = [mockPost];
+  const timelineContent = mockPost;
   //   const timelineContent = useTimeLine(
   //     token,
   //     isResponseEdited,

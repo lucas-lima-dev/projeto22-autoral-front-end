@@ -2,7 +2,7 @@ import PostMessage from "./PostMessage";
 import PostUrlMetadata from "./PostUrlMetadata";
 import {
   PostContentContainer,
-  PostIterractonsWrapper,
+  PostIterractionsWrapper,
   PostUserImg,
   PostTextWrapper,
   PostUserName,
@@ -13,11 +13,12 @@ import {
 
 function PostContent({post}) {
     const {id, user_id, description, url, title, image, brief} = post
+
   return (
     <PostContentContainer>
-      <PostIterractonsWrapper>
+      <PostIterractionsWrapper>
         <PostUserImg src="https://picsum.photos/200/300" alt="" />
-      </PostIterractonsWrapper>
+      </PostIterractionsWrapper>
       <PostTextWrapper>
         <PostHeader>
             <PostUserName>Lucas</PostUserName>

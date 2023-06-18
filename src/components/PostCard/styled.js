@@ -12,13 +12,14 @@ export const PostContentContainer = w.div(
     rounded-[16px]
     bg-[#171717]
     w-[100%]
-    p-[20px]
+    p-[30px]
     box-border
     mb-[20px]
     `)
 
-export const PostIterractonsWrapper = w.div(
+export const PostIterractionsWrapper = w.div(
     `
+    w-[60px]
     flex
     flex-col
     items-center
@@ -92,23 +93,28 @@ export const PostUrlMetadataH1 = w.h1(
     text-[#CECECE]
     leading-[19px]
     mt-[24px]
+    ml-[10px]
     mb-[5px]
     `
     )
 
 export const PostUrlMetadataH2 = w.h2(
     `
+    w-[439px]
     text-[11px]
     text-[#9B9595]
     leading-[13px]
+    ml-[10px]
     mb-[13px]
     `)
 
 export const PostUrlMetadataH3 = w.h3(
     `
+    
     text-[11px]
     text-[#CECECE]
     leading-[13px]
+    ml-[10px]
     
     `)
 

@@ -23,9 +23,6 @@ function SignUpPage() {
     event.preventDefault();
     setIsLoading(true);
 
-    // if (username === "" || email === "" || password === "" || user_url === "") {
-    //   return alert("Por favor, preencha todos os dados!");
-    // }
     const URL = `${import.meta.env.VITE_API_BASE_URL}/users/sign-up`;
 
     const body = {

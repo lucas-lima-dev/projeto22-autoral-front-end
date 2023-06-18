@@ -31,21 +31,16 @@ function SignInPage() {
       password,
     };
 
-    console.log(body);
+    const URL = `${import.meta.env.VITE_API_BASE_URL}/users/sign-in`;
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/users/sign-in`,
-        body
-      );
-      console.log(response);  
+      const response = await axios.post(URL, body);
+
       setIsLoading(false);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("user", JSON.stringify(response.data.user));
       navigate("/home");
-
     } catch (error) {
-      console.log(error);
       alert("Ops! Tente novamente!");
       setIsLoading(false);
     }

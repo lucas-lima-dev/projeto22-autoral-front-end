@@ -5,8 +5,8 @@ export const HomePageContainer = w.div(
     flex 
     items-center
     justify-center
-    w-screen 
-    h-screen 
+    w-auto 
+    h-auto 
     bg-[#333333]
 
     `
@@ -24,11 +24,15 @@ export const PostsWrapper = w.div(
 export const ContentContainer = w.div(
     `
     flex
+    flex-col
+    items-center
+    mt-[100px]
     `
 )
 
 export const PostArea = w.div(
     `
+    
     w-[70%]
     `
 )
