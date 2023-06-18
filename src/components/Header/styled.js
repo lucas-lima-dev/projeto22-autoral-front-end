@@ -5,7 +5,10 @@ export const HeaderContainer = w.div(
   `
     w-screen
     h-[82px]
-    bg-black
+    bg-[url("https://33622.cdn.simplo7.net/static/33622/sku/tecidos-tricoline-tecido-tricoline-digital-quebra-cabeca-autismo-ref-9003--p-1636565836823.png")]
+    bg-no-repeat
+    bg-center
+    bg-cover
     flex
     items-center
     justify-around

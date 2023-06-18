@@ -12,7 +12,7 @@ import {
 
 
 function PostContent({post}) {
-  console.log(post)
+  
     const {id,users,username, description, url, title, image, brief} = post
 
   return (
