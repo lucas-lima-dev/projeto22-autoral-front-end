@@ -12,7 +12,9 @@ import {
   PostUserName,
   PostHeader,
   UpdateAndDeletePostContainer,
+  UserNameAndIconContainer,
 } from "./styled";
+import DeletePost from "./DeletePost/DeletePost";
 
 function PostContent({
   post,
@@ -20,8 +22,7 @@ function PostContent({
   setIsResponseEdited,
   setIsPostDeleted,
 }) {
-
-  const { id, users, username, description, url, title, image, brief } = post;
+  const { id, users, description, url, title, image, brief } = post;
   const [editingPostId, setEditingPostId] = useState(null);
   const [editedMessage, setEditedMessage] = useState("");
 
@@ -44,7 +45,16 @@ function PostContent({
       </PostIterractionsWrapper>
       <PostTextWrapper>
         <PostHeader>
-          <PostUserName>{users.username}</PostUserName>
+          <UserNameAndIconContainer>
+            <PostUserName>{users.username}</PostUserName>
+            <UpdateAndDeletePostContainer>
+              <IoPencil
+                className="text-[#FFFFFF] cursor-pointer"
+                onClick={() => handleEditClick(id)}
+              />
+              <DeletePost id={id} setIsPostDeleted={setIsPostDeleted} />
+            </UpdateAndDeletePostContainer>
+          </UserNameAndIconContainer>
           {editingPostId === id ? (
             <UpdatePost
               editingPostId={editingPostId}
@@ -58,12 +68,7 @@ function PostContent({
             <PostMessage description={description} />
           )}
         </PostHeader>
-        <UpdateAndDeletePostContainer>
-          <IoPencil 
-          className="text-[#FFFFFF] cursor-pointer"
-          onClick={() => handleEditClick(id)}
-          />
-        </UpdateAndDeletePostContainer>
+
         <PostUrlMetadata
           title={title}
           url={url}

@@ -1,11 +1,7 @@
 import { w } from "windstitch";
 // import { IoPencil } from "react-icons/io5";
 
-export const StyledNoPostMenssage = w.p(
-  `
-    
-    `
-);
+export const StyledNoPostMenssage = w.p(``);
 
 export const PostContentContainer = w.div(
   `
@@ -16,7 +12,7 @@ export const PostContentContainer = w.div(
     p-[30px]
     box-border
     mb-[20px]
-    `
+  `
 );
 
 export const PostIterractionsWrapper = w.div(
@@ -26,7 +22,7 @@ export const PostIterractionsWrapper = w.div(
     flex-col
     items-center
     cursor-pointer
-    `
+  `
 );
 export const PostUserImg = w.img(
   `
@@ -34,7 +30,7 @@ export const PostUserImg = w.img(
     h-[50px]
     rounded-[50%]
     mb-[20px]
-    `
+  `
 );
 
 export const PostTextWrapper = w.div(
@@ -42,7 +38,7 @@ export const PostTextWrapper = w.div(
     flex
     flex-col
     gap-[10px]
-    `
+  `
 );
 
 export const PostHeader = w.div(
@@ -54,15 +50,22 @@ export const PostHeader = w.div(
     pt-[2px]
     ml-[17px]
     box-border
-    `
+  `
 );
-
+export const UserNameAndIconContainer = w.div(
+  `
+    flex
+    justify-between
+    items-center
+    w-[100%]
+  `
+);
 export const PostUserName = w.h1(
   `
     text-[#FFFFFF]
     text-[20px]
     font-light
-    `
+  `
 );
 
 export const PostMessageContainer = w.div(
@@ -73,7 +76,7 @@ export const PostMessageContainer = w.div(
     leading-[20px]
     mt-[8px]
     break-all
-    `
+  `
 );
 
 export const PostUrlMetadataContainer = w.div(
@@ -87,12 +90,12 @@ export const PostUrlMetadataContainer = w.div(
     border-[#4D4D4D]
     border-solid
     no-underline
-    `
+  `
 );
 export const PostUrlMetadataTextContainer = w.div(
   `
     w-[400px]
-`
+  `
 );
 export const PostUrlMetadataH1 = w.h1(
   `
@@ -102,7 +105,7 @@ export const PostUrlMetadataH1 = w.h1(
     mt-[24px]
     ml-[10px]
     mb-[5px]
-    `
+  `
 );
 
 export const PostUrlMetadataH2 = w.h2(
@@ -112,31 +115,29 @@ export const PostUrlMetadataH2 = w.h2(
     leading-[13px]
     ml-[10px]
     mb-[13px]
-    `
+  `
 );
 
 export const PostUrlMetadataH3 = w.h3(
   `
-    
     text-[11px]
     text-[#CECECE]
     leading-[13px]
     ml-[10px]
-    
-    `
+  `
 );
 
 export const PostUrlMetadataImg = w.img(
   `
-w-[155px]
-h-[155px]
-rounded-[11px]
-`
+    w-[155px]
+    h-[155px]
+    rounded-[11px]
+  `
 );
 
 export const UpdateAndDeletePostContainer = w.div(
-    `
+  `
     flex
-    
     gap-[10px]
-    `)
+  `
+);
