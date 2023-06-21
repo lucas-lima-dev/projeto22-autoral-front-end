@@ -5,10 +5,10 @@ import TimelineContext from "../../contexts/TimelineContext";
 import useFetchTimeline from "../../hooks/api/useFetchTimeline";
 
 function PostCard() {
+  // const { token } = useContext(UserContext);
+
   const token = localStorage.getItem("token");
-  const [editingPostId, setEditingPostId] = useState(null);
-  const [editedMessage, setEditedMessage] = useState("");
-  
+
   const {
     isResponseEdited,
     setIsResponseEdited,
@@ -18,17 +18,27 @@ function PostCard() {
   } = useContext(TimelineContext);
 
   const timelineContent = useFetchTimeline(
-      token,
-      isResponseEdited,
-      isPostDeleted,
-      isPostCreated
-    );
+    token,
+    isResponseEdited,
+    isPostDeleted,
+    isPostCreated
+  );
 
   return (
     <>
-    {timelineContent.length === 0 ? 
-    (<NoPostMessage>Ainda não existem posts</NoPostMessage>) : 
-    timelineContent.map((post) => <PostContent key={post.id} post={post}/>)}
+      {timelineContent.length === 0 ? (
+        <NoPostMessage>Ainda não existem posts</NoPostMessage>
+      ) : (
+        timelineContent.map((post) => (
+          <PostContent
+            key={post.id}
+            post={post}
+            timelineContent={timelineContent}
+            setIsResponseEdited={setIsResponseEdited}
+            setIsPostDeleted={setIsPostDeleted}
+          />
+        ))
+      )}
     </>
   );
 }
